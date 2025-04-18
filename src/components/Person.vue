@@ -1,41 +1,50 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { reactive, ref } from 'vue'
 
-const name = ref('123')
-const age = ref(18)
-const tel = ref('1388888888')
+let car = reactive({ brand: '奔驰', price: 100 })
 
-function showTel() {
-  alert(tel.value)
+function changePrice() {
+  car.price += 10
 }
 
-function changeName() {
-  name.value = '张三'
+let games = reactive([
+  { id: '01', name: 'Arcaea' },
+  { id: '02', name: 'SDVX' },
+  { id: '03', name: 'Cytus' },
+])
+
+function changeFirstGame() {
+  games[0].name = '流星蝴蝶剑'
 }
 
-function changeAge() {
-  age.value += 1
+let obj = reactive({
+  a: {
+    b: {
+      c: 666,
+    },
+  },
+})
+
+function changeObj() {
+  obj.a.b.c = 999
 }
 </script>
 
 <template>
   <div class="person">
-    <h2>姓名: {{ name }}</h2>
-    <h2>年龄: {{ age }}</h2>
-    <button @click="showTel">查看联系方式</button>
-    <button @click="changeName">修改姓名</button>
-    <button @click="changeAge">修改年龄</button>
+    <h2>一辆{{ car.brand }}车，价值{{ car.price }}万</h2>
+    <button @click="changePrice">增加10万</button>
+    <ul>
+      <li v-for="game in games" :key="game.id">{{ game.name }}</li>
+    </ul>
+    <button @click="changeFirstGame">更改第一个游戏的名字</button>
   </div>
+  <hr />
+  <h2>测试{{ obj.a.b.c }}</h2>
+  <button @click="changeObj">改变obj</button>
 </template>
 
 <style scoped>
-.person {
-  background-color: skyblue;
-  box-shadow: 0 0 10px;
-  border-radius: 10px;
-  padding: 20px;
-}
-
 button {
   margin: 0 5px;
 }

@@ -1,10 +1,10 @@
 <script setup lang="ts">
-
+  import Person from './components/Person.vue';
 </script>
 
 <template>
   <div class="app">
-    <h1>你好啊！</h1>
+    <Person />
   </div>
 </template>
 

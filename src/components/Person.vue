@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { reactive, ref } from 'vue'
+import { reactive} from 'vue'
 
 let car = reactive({ brand: '奔驰', price: 100 })
 

@@ -1,26 +1,23 @@
 <script setup lang="ts">
-import { reactive, toRefs } from 'vue'
+import { ref, computed } from 'vue'
 
-let person = reactive({
-  name: '张三',
-  age: 18,
+let firstName = ref('张')
+let lastName = ref('三')
+let fullName = computed(() => {
+  return (
+    firstName.value.slice(0, 1).toUpperCase() +
+    firstName.value.slice(1) +
+    '-' +
+    lastName.value
+  )
 })
-
-let {name, age} = toRefs(person)
-function changeName() {
-  name.value += '~'
-}
-function changeAge() {
-  age.value += 1
-}
 </script>
 
 <template>
   <div class="person">
-    <h2>姓名: {{ name }}</h2>
-    <h2>年龄: {{ age }}</h2>
-    <button @click="changeName">修改名字</button>
-    <button @click="changeAge">修改年龄</button>
+    姓: <input type="text" v-model="firstName" /> <br />
+    名: <input type="text" v-model="lastName" /> <br />
+    全名: <span>{{ fullName }}</span>
   </div>
 </template>
 

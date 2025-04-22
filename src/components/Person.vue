@@ -33,24 +33,12 @@ function changeC3() {
   }
 }
 
-// 监视，情况四：监视响应式对象中的某个属性，且该属性是基本类型的，要写成函数式
-// watch(
-//   () => {
-//     return person.name
-//   },
-//   (newValue, oldValue) => {
-//     console.log('person变化了', newValue, oldValue)
-//   },
-// )
-// 监视响应式对象中的某个对象类型的属性，可以直接写，也能写函数，更推荐函数
-// 如果还需要关注对象内部属性，需要手动开启深度监视
 watch(
-  () => {
-    return person.name
-  },
+  [() => person.name, () => person.car.c1],
   (newValue, oldValue) => {
-    console.log('person变化了', newValue, oldValue)
-  }, {deep:true},
+    console.log('person.car变化了', newValue, oldValue)
+  },
+  { deep: true },
 )
 </script>
 

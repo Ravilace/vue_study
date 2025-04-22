@@ -1,40 +1,56 @@
 <script setup lang="ts">
-import { ref, watch } from 'vue'
+import { reactive, watch } from 'vue'
 
-let person = ref({
+let person = reactive({
   name: '张三',
   age: 18,
 })
+let obj = reactive({
+  a: {
+    b: {
+      c: 666
+    }
+  }
+})
 function changeName() {
-  person.value.name += '~'
+  person.name += '~'
 }
 function changeAge() {
-  person.value.age += 1
+  person.age += 1
 }
 function changePerson() {
-  person.value = {
-    name: '李四',
-    age: 24
-  }
+  Object.assign(person, {name: '李四', age:80})
 }
-// 监视，情况一：监视【ref】定义的【对象类型】数据，监视的是对象的地址值
-// 若想监视对象内部属性的变化，需要手动开启深度监视
-// 此时需要第三个参数，进行配置
-// 当使用deep watch时，只是更改属性时，newValue和oldValue是一样的
-// 这是因为按引用传参导致的
-watch(person, (newValue, oldValue) => {
+function changeObj() {
+  Object.assign(obj, {
+    a: {
+      b: {
+        c: 123
+      }
+    }
+  })
+}
+// 监视，情况三：监视【reactive】定义的【对象类型】数据
+// 默认是开启深度监视的
+watch(person, (newValue, oldValue)=>{
   console.log('person变化了', newValue, oldValue)
-}, {deep:true})
+})
+watch(obj, (newValue, oldValue) => {
+  console.log('obj变化了', newValue, oldValue)
+})
 </script>
 
 <template>
   <div class="person">
-    <h1>情况二：监视【ref】定义的【对象类型】数据</h1>
+    <h1>情况三：监视【reactive】定义的【对象类型】数据</h1>
     <h2>姓名：{{ person.name }}</h2>
     <h2>年龄：{{ person.age }}</h2>
     <button @click="changeName">更改姓名</button>
     <button @click="changeAge">更改年龄</button>
     <button @click="changePerson">更改整个人</button>
+    <hr>
+    <h2>测试：{{obj.a.b.c}}</h2>
+    <button @click="changeObj">点我测试obj变化</button>
   </div>
 </template>
 

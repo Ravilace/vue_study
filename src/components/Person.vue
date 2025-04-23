@@ -1,24 +1,32 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import { type PersonInter, type Persons } from '@/types/index.ts'
+// let person: PersonInter = {id: "215345", name:'赵六', age: 42}
 
-// 不需要赋值
-let title2 = ref()
-let a = ref(0)
-let b = ref(1)
-let c = ref(2)
-
-function showLog() {
-  console.log(title2.value)
-}
-defineExpose({a, b, c})
+let personList: Persons = [
+  {
+    id: '01y713',
+    name: '张三',
+    age: 18,
+  },
+  {
+    id: '02a927',
+    name: '李四',
+    age: 60,
+  },
+  {
+    id: '03z248',
+    name: '王五',
+    age: 23,
+  },
+]
 </script>
 
 <template>
   <div class="person">
-    <h1>中国</h1>
-    <h2 ref="title2">北京</h2>
-    <h3>尚硅谷</h3>
-    <button @click="showLog">点我输出h2这个元素</button>
+    <div v-for="person in personList">
+      id: {{person.id}} || 姓名: {{ person.name }} || 年龄: {{person.age}}
+    </div>
   </div>
 </template>
 

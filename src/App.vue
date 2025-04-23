@@ -1,34 +1,8 @@
 <script setup lang="ts">
-import {ref, onBeforeMount, onMounted, onBeforeUpdate, onUpdated, onBeforeUnmount, onUnmounted} from 'vue'
+import {ref} from 'vue'
 import Person from './components/Person.vue'
 
 let isShow = ref(true)
-// setup就是创建
-console.log('父组件创建')
-
-// 挂载前
-onBeforeMount(() => {
-  console.log('父组件挂载前')
-})
-
-// 挂载完毕
-onMounted(() => {
-  console.log('父组件挂载完毕')
-})
-
-onBeforeUpdate(() => {
-  console.log('父组件更新前')
-})
-
-onUpdated(() => {
-  console.log('父组件更新完毕')
-})
-onBeforeUnmount(() => {
-  console.log('父组件卸载前')
-})
-onUnmounted(() => {
-  console.log('父组件卸载完毕')
-})
 </script>
 
 <template>

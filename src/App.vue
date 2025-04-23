@@ -1,36 +1,39 @@
 <script setup lang="ts">
-import { reactive } from 'vue'
-import { type Persons } from '@/types'
+import {ref, onBeforeMount, onMounted, onBeforeUpdate, onUpdated, onBeforeUnmount, onUnmounted} from 'vue'
 import Person from './components/Person.vue'
 
-// reactive直接传泛型
-let personList = reactive<Persons>([
-  {
-    id: '01y713',
-    name: '张三',
-    age: 18,
-  },
-  {
-    id: '02a927',
-    name: '李四',
-    age: 60,
-  },
-  {
-    id: '03z248',
-    name: '王五',
-    age: 23,
-    x: 1,
-  },
-])
+let isShow = ref(true)
+// setup就是创建
+console.log('父组件创建')
+
+// 挂载前
+onBeforeMount(() => {
+  console.log('父组件挂载前')
+})
+
+// 挂载完毕
+onMounted(() => {
+  console.log('父组件挂载完毕')
+})
+
+onBeforeUpdate(() => {
+  console.log('父组件更新前')
+})
+
+onUpdated(() => {
+  console.log('父组件更新完毕')
+})
+onBeforeUnmount(() => {
+  console.log('父组件卸载前')
+})
+onUnmounted(() => {
+  console.log('父组件卸载完毕')
+})
 </script>
 
 <template>
   <div class="app">
-    <!--    不加冒号会传字符串过去-->
-    <!--    <Person a="哈哈" list=personList />-->
-    <!--    加冒号相当于对字符串进行了eval实际拿变量求值-->
-    <!--    ref是特例，不需要加冒号-->
-    <Person :personList="personList" />
+    <Person v-if="isShow" />
   </div>
 </template>
 

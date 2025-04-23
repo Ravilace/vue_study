@@ -2,7 +2,8 @@
 export interface PersonInter {
     id: string,
     name: string,
-    age: number
+    age: number,
+    x?: number // 加个?代表这个属性是可选的
 }
 
 // 一个自定义类型

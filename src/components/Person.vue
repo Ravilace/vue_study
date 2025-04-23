@@ -1,37 +1,40 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-import { type PersonInter, type Persons } from '@/types/index.ts'
-// let person: PersonInter = {id: "215345", name:'赵六', age: 42}
+// defineProps是宏函数，可以不用手动引入
+import {withDefaults } from 'vue'
+import type {Persons} from "@/types";
+// 只接收
+// defineProps(['a'])
 
-let personList: Persons = [
-  {
-    id: '01y713',
-    name: '张三',
-    age: 18,
-  },
-  {
-    id: '02a927',
-    name: '李四',
-    age: 60,
-  },
-  {
-    id: '03z248',
-    name: '王五',
-    age: 23,
-  },
-]
+// 同时将props保存起来
+// let x = defineProps(['personList'])
+// console.log(x)
+
+// 接收props同时限制type: defineProps<{personList:Persons}>()
+// 限制必要性：defineProps<{personList？:Persons}>()
+// 使用withDefaults设置默认值，注意使用函数来返回对象或数组
+// 因为使用工厂函数可以保证每次这种默认值都是新建的，防止共享内存地址导致污染
+withDefaults(defineProps<{personList:Persons}>(), {
+  personList: () => [{'id': "0", 'name': '测试', age: 0}]
+})
+
 </script>
 
 <template>
   <div class="person">
-    <div v-for="person in personList">
-      id: {{person.id}} || 姓名: {{ person.name }} || 年龄: {{person.age}}
-    </div>
+    <ul>
+      <li v-for="person in personList" :key="person.id">{{ person.name }} -- {{ person.age }}</li>
+    </ul>
   </div>
 </template>
 
 <style scoped>
 button {
   margin: 0 5px;
+}
+
+div {
+  background-color: lightblue;
+  border-radius: 10px;
+  padding: 20px;
 }
 </style>

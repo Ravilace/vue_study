@@ -22,7 +22,7 @@ const newsList = reactive([
         <RouterLink
           :to="{
             name: '详细',
-            query: {
+            params: {
               id: news.id,
               title: news.title,
               content: news.content,

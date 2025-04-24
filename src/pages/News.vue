@@ -10,15 +10,32 @@ const newsList = reactive([
 </script>
 
 <template>
-  <!--  导航区-->
+  <!--导航区-->
   <div class="news">
     <ul>
       <li v-for="news in newsList">
-        <!--        嵌套的to需要书写完整的path-->
-        <RouterLink to="/news/detail">{{ news.title }}</RouterLink>
+        <!--嵌套的to需要书写完整的path-->
+        <!--模板字符串，添加``，然后变量名前加$-->
+        <!--第一种写法-->
+        <!--<RouterLink :to="`/news/detail?id=${news.id}&&title=${news.title}&&content=${news.content}`">-->
+        <!--  {{ news.title }}-->
+        <!--</RouterLink>-->
+        <!--第二种写法-->
+        <RouterLink
+          :to="{
+            name: '详细',
+            query: {
+              id: news.id,
+              title: news.title,
+              content: news.content,
+            }
+          }"
+        >
+          {{ news.title }}
+        </RouterLink>
       </li>
     </ul>
-    <!--  展示区-->
+    <!--展示区-->
     <div class="news-content">
       <RouterView></RouterView>
     </div>
@@ -35,8 +52,12 @@ const newsList = reactive([
 
 .news ul {
   margin-top: 30px;
-  list-style: none;
   padding-left: 10px;
+  /*list-style: none;*/
+}
+
+.news li::marker {
+  color: #64967e;
 }
 
 .news li > a {

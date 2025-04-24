@@ -22,6 +22,7 @@ const router = createRouter({
       component: News,
       children: [
         {
+          name: '详细',
           // 子集不需要写斜杠
           path: 'detail',
           component: Detail,

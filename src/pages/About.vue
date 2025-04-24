@@ -1,5 +1,11 @@
 <script setup lang="ts">
-
+import {onMounted, onUnmounted} from "vue";
+  onMounted(() => {
+    console.log("About组件被挂载了")
+  })
+  onUnmounted(() => {
+    console.log("About组件被卸载了")
+  })
 </script>
 
 <template>

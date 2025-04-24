@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { reactive } from 'vue'
+import { useRouter } from 'vue-router'
 
 const newsList = reactive([
   { id: '01', title: '很好的抗癌食物', content: '西蓝花' },
@@ -7,6 +8,24 @@ const newsList = reactive([
   { id: '03', title: '震惊，万万没想到', content: '明天是周一' },
   { id: '04', title: '好消息!好消息', content: '快过年了' },
 ])
+const router = useRouter()
+
+interface NewsInter {
+  id: string
+  title: string
+  content: string
+}
+
+function showNewsDetail(news: NewsInter) {
+  router.push({
+    name: '详细',
+    params: {
+      id: news.id,
+      title: news.title,
+      content: news.content,
+    },
+  })
+}
 </script>
 
 <template>
@@ -14,11 +33,7 @@ const newsList = reactive([
   <div class="news">
     <ul>
       <li v-for="news in newsList">
-        <!--第一种写法-->
-        <!--<RouterLink :to="`/news/detail/${news.id}/${news.title}/${news.content}`">-->
-        <!--  {{ news.title }}-->
-        <!--</RouterLink>-->
-        <!--第二种写法，注意使用params route时，不能用path指定，强制用name-->
+        <button @click="showNewsDetail(news)">查看新闻</button>
         <RouterLink
           :to="{
             name: '详细',

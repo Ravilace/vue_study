@@ -1,12 +1,11 @@
 <script setup lang="ts">
-  import {useRouter} from "vue-router";
-  import {onMounted} from "vue";
-  import router from "@/router";
-  onMounted(() => {
-    setTimeout(() => {
-      router.push('/news')
-    }, 3000)
-  })
+  // import {onMounted} from "vue";
+  // import router from "@/router";
+  // onMounted(() => {
+  //   setTimeout(() => {
+  //     router.push('/news')
+  //   }, 3000)
+  // })
 </script>
 
 <template>

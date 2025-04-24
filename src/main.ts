@@ -2,5 +2,8 @@
 import {createApp} from 'vue'
 // 引入App根组件
 import App from './App.vue'
+// 引入路由器, index.ts可以省略不写
+import router from './router'
 
-createApp(App).mount('#app')
+const app = createApp(App)
+app.mount('#app')

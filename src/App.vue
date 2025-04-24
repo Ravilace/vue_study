@@ -1,15 +1,19 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+  import {RouterView, RouterLink} from "vue-router";
+</script>
 
 <template>
   <h2 class="title">Vue路由测试</h2>
   <!--  导航区-->
   <div class="navigate">
-    <a href="#" class="active">首页</a>
-    <a href="#">新闻</a>
-    <a href="#">关于</a>
+    <RouterLink to="/home" active-class="active">首页</RouterLink>
+    <RouterLink to="/news" active-class="active">新闻</RouterLink>
+    <RouterLink to="/about" active-class="active">关于</RouterLink>
   </div>
   <!--  展示区-->
-  <div class="main-content">此处以后可能要展示各种组件，到底展示哪个组件，需要看路径</div>
+  <div class="main-content">
+    <RouterView></RouterView>
+  </div>
 </template>
 <style scoped>
 .title {

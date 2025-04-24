@@ -23,8 +23,7 @@ const router = createRouter({
       children: [
         {
           name: '详细',
-          // 子集不需要写斜杠
-          path: 'detail',
+          path: 'detail/:id/:title/:content',
           component: Detail,
         }
       ]

@@ -14,21 +14,19 @@ const newsList = reactive([
   <div class="news">
     <ul>
       <li v-for="news in newsList">
-        <!--嵌套的to需要书写完整的path-->
-        <!--模板字符串，添加``，然后变量名前加$-->
         <!--第一种写法-->
-        <!--<RouterLink :to="`/news/detail?id=${news.id}&&title=${news.title}&&content=${news.content}`">-->
+        <!--<RouterLink :to="`/news/detail/${news.id}/${news.title}/${news.content}`">-->
         <!--  {{ news.title }}-->
         <!--</RouterLink>-->
-        <!--第二种写法-->
+        <!--第二种写法，注意使用params route时，不能用path指定，强制用name-->
         <RouterLink
           :to="{
             name: '详细',
-            query: {
+            params: {
               id: news.id,
               title: news.title,
               content: news.content,
-            }
+            },
           }"
         >
           {{ news.title }}

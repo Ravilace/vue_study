@@ -5,7 +5,7 @@
 <template>
   <div class="news">
     <ul>
-      <li v-for="i in 4">新闻00{{i + 1}}</li>
+      <li v-for="i in 4">新闻00{{i}}</li>
     </ul>
   </div>
 </template>

@@ -11,14 +11,17 @@ const router = createRouter({
   history: createWebHistory(), // 路由器的工作模式（稍后讲解）
   routes: [
     {
+      name: '主页',
       path: '/home',
       component: Home,
     },
     {
+      name: '新闻',
       path: '/news',
       component: News,
     },
     {
+      name: '关于',
       path: '/about',
       component: About,
     },

@@ -4,7 +4,7 @@ import { useCountStore } from '@/store/count.ts'
 import {storeToRefs} from "pinia";
 
 const countStore = useCountStore()
-let {sum, school, address} = storeToRefs(countStore)
+let {sum, school, address, bigSum, upperSchool} = storeToRefs(countStore)
 let n = ref(1)
 
 function add() {
@@ -19,8 +19,8 @@ function sub() {
 
 <template>
   <div class="count">
-    <h2>当前求和为：{{ sum }}</h2>
-    <h3>欢迎来到: {{ school }}, 坐落于: {{ address }}</h3>
+    <h2>当前求和为：{{ sum }}, 放大十倍后{{bigSum}}</h2>
+    <h3>欢迎来到: {{ school }}, 坐落于: {{ address }}, 大写学校为: {{upperSchool}}</h3>
     <select v-model.number="n">
       <option value="1">1</option>
       <option value="2">2</option>

@@ -19,4 +19,8 @@ export const useCountStore = defineStore('count', {
       address: '宏福科技园',
     }
   },
+  getters: {
+    bigSum: state => state.sum * 10,
+    upperSchool: state => state.school.toUpperCase()
+  }
 })

@@ -2,11 +2,8 @@
   import {reactive} from 'vue'
   import axios from 'axios'
   import {nanoid} from "nanoid";
-  let talkList = reactive([
-    {id: '01', title: '测试语句1'},
-    {id: '02', title: '测试语句2'},
-    {id: '03', title: '测试语句3'},
-  ])
+  import {useTalkStore} from "@/store/talk.ts";
+  const talkList = useTalkStore().talkList
   async function getTalk() {
     // 发请求，下面这行的写法是：连续解构赋值+重命名
     let {data: {content: title}} = await axios.get('/api/qinghua')

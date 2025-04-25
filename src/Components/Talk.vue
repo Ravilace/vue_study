@@ -1,6 +1,7 @@
 <script setup lang="ts">
   import {useTalkStore} from "@/store/talk.ts";
-  let talkList = useTalkStore().talkList
+  import {storeToRefs} from "pinia";
+  let {talkList} = storeToRefs(useTalkStore())
   function getTalk() {
     useTalkStore().getTalk()
   }

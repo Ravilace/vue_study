@@ -1,11 +1,19 @@
 <script setup lang="ts">
 import Child from './Child.vue'
 import { ref } from 'vue'
+
+let toy = ref('')
+
+function getToy(value: string) {
+  toy.value = value
+}
 </script>
 
 <template>
   <div class="father">
-
+    <h3>父组件</h3>
+    <h4 v-show="toy">子组件给的{{ toy }}</h4>
+    <Child @send-toy="getToy" />
   </div>
 </template>
 

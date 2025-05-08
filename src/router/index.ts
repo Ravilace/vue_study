@@ -4,6 +4,7 @@ import Event from '@/pages/02_event/Father.vue'
 import Mitt from '@/pages/03_mitt/Father.vue'
 import VModel from '@/pages/04_v-model/Father.vue'
 import Attrs from '@/pages/05_attrs/GrandFather.vue'
+import RefsAndParent from '@/pages/06_refs_and_parent/Father.vue'
 
 export default createRouter({
   history: createWebHistory(),
@@ -28,5 +29,9 @@ export default createRouter({
       path: '/attrs',
       component: Attrs,
     },
+    {
+      path: '/refs_and_parent',
+      component: RefsAndParent,
+    }
   ],
 })

@@ -11,6 +11,7 @@
       <router-link acive-class="active" class="list-group-item" to="/event">2.event</router-link>
       <router-link acive-class="active" class="list-group-item" to="/mitt">3.mitt</router-link>
       <router-link acive-class="active" class="list-group-item" to="/v_model">4.v-model</router-link>
+      <router-link acive-class="active" class="list-group-item" to="/attrs">5.attrs</router-link>
     </div>
   </div>
   <div class="col-xs-9 col-md-9 col-lg-9 col-xl-9">

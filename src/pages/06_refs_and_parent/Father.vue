@@ -5,6 +5,7 @@ import { ref } from 'vue'
 
 const c1 = ref()
 const c2 = ref()
+const house = ref('别墅')
 
 function changeChild1Toy() {
   c1.value.toy = '父亲更改后的玩具'
@@ -18,11 +19,13 @@ function AddAllChildrenBooks(refs: any) {
     refs[key].book_num += 4
   }
 }
+defineExpose({house})
 </script>
 
 <template>
   <div class="father">
     <h3>父组件</h3>
+    <h4>父亲的房子：{{ house }}</h4>
     <button @click="changeChild1Toy">修改子组件1的玩具</button>
     <button @click="AddAllChildrenBooks($refs)">添加每个孩子的书</button>
     <Child1 ref="c1" />

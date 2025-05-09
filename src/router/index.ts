@@ -5,6 +5,7 @@ import Mitt from '@/pages/03_mitt/Father.vue'
 import VModel from '@/pages/04_v-model/Father.vue'
 import Attrs from '@/pages/05_attrs/GrandFather.vue'
 import RefsAndParent from '@/pages/06_refs_and_parent/Father.vue'
+import ProvideAndInject from '@/pages/07_provide_and_inject/GrandFather.vue'
 
 export default createRouter({
   history: createWebHistory(),
@@ -32,6 +33,10 @@ export default createRouter({
     {
       path: '/refs_and_parent',
       component: RefsAndParent,
-    }
+    },
+    {
+      path: '/provide_and_inject',
+      component: ProvideAndInject,
+    },
   ],
 })

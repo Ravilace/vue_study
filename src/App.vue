@@ -13,6 +13,7 @@
       <router-link acive-class="active" class="list-group-item" to="/v_model">4.v-model</router-link>
       <router-link acive-class="active" class="list-group-item" to="/attrs">5.attrs</router-link>
       <router-link acive-class="active" class="list-group-item" to="/refs_and_parent">6.$refs and $parent</router-link>
+      <router-link acive-class="active" class="list-group-item" to="/provide_and_inject">7.provide and inject</router-link>
     </div>
   </div>
   <div class="col-xs-9 col-md-9 col-lg-9 col-xl-9">

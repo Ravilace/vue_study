@@ -14,9 +14,6 @@ defineExpose({ toy, book_num })
 <template>
   <div class="child">
     <h3>子组件1</h3>
-    <h4>玩具为：{{ toy }}</h4>
-    <h4>书籍数量: {{ book_num }}</h4>
-    <button @click="changeFatherHouse($parent)">升级父亲的房子</button>
   </div>
 </template>
 

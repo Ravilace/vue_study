@@ -1,12 +1,11 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-
+defineProps(['title'])
 </script>
 
 <template>
   <div class="category">
-    <h2 class="title">xxxxxx</h2>
-    <h3>??????</h3>
+    <h3 class="title">{{ title }}</h3>
+    <slot><h3>默认显示</h3></slot>
   </div>
 </template>
 

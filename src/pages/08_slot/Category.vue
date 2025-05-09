@@ -5,8 +5,8 @@ import { ref } from 'vue'
 
 <template>
   <div class="category">
-    <h3>xxxxxx</h3>
-    <h4>??????</h4>
+    <h2 class="title">xxxxxx</h2>
+    <h3>??????</h3>
   </div>
 </template>
 
@@ -18,5 +18,9 @@ import { ref } from 'vue'
   padding: 10px;
   width: 200px;
   height: 300px;
+}
+.title {
+  background-color: orange;
+  text-align: center;
 }
 </style>
